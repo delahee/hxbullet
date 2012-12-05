@@ -1,0 +1,9 @@
+
+based on bullet 2.81
+
+i'll try to port the simplest example with broadphase first alone to establish port policy.
+
+then i ll try to find people to help me complete the port :)
+
+xoxo 
+david.
