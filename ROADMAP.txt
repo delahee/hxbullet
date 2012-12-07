@@ -1,9 +1,23 @@
 
 based on bullet 2.81
 
-i'll try to port the simplest example with broadphase first alone to establish port policy.
 
-then i ll try to find people to help me complete the port :)
+to port the test classes then the first demo with broadphase to establish port policy.
+then try to find people to help me complete the port :)
+
+policy:
+
+suppress the btPrefix since we have namespacing
+btMatrix3x3 -> Matrix33
+
+shorten type literals to compact form
+Matrix3x3 -> Mtx33
+
+port function name as provided
+port constructor under a from*Type* form
+
+keep data structure roughly the same ( array stay as arrays )
+try to abstract from java port to start.
 
 xoxo 
 david.
