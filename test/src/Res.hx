@@ -1,0 +1,5 @@
+enum Res
+{
+	SUCCESS;
+	FAILED;
+}
