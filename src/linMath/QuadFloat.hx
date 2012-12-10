@@ -5,7 +5,7 @@ class QuadFloat
 {
 	public var el : Array<Float>;
 	
-	public function new(x=0,y=0,z=0,w=0)
+	public function new(x=.0,y=.0,z=.0,w=.0)
 	{
 		el = [];
 		this.x = x;
@@ -35,7 +35,7 @@ class QuadFloat
 	public inline function set_z(v) return el[2]=v
 	public inline function set_w(v) return el[3] = v
 	
-	public inline function setValue(x,y,z)
+	public inline function setValue(x,y,z,w=0)
 	{
 		this.x = x; this.y = y; this.z = z; w = 0;
 	}
