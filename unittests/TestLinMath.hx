@@ -1,10 +1,12 @@
+import linMath.Quat;
 import linMath.Vec3;
 
 class TestLinMath extends Unit
 {
 	static var penetrationDirections : Array<Vec3> = 
-	[/*
-		new Vec3( 0.000000	 	,-0.000000 	,-1.000000 ),
+	[
+	
+		new Vec3( 0.0		 	,-0.0 	,-1.0		 ),
 		new Vec3( 0.723608	 	,-0.525725 	,-0.447219 ),
 		new Vec3( -0.276388  	,-0.850649 	,-0.447219 ),
 		new Vec3( -0.894426 	,-0.000000 ,-0.447216) ,
@@ -25,7 +27,7 @@ class TestLinMath extends Unit
 		new Vec3( -0.688190 	,-0.499997 	,-0.525736) ,
 		new Vec3( -0.162456 	,0.499995 	,-0.850654) ,
 		new Vec3( -0.688190 	,0.499997 	,-0.525736) ,
-		new Vec3( 0.262869 		 (0.809012 	,-0.525738) ,
+		new Vec3( 0.262869 		,0.809012 	,-0.525738) ,
 		new Vec3( 0.951058 		,0.309013 	,0.000000) ,
 		new Vec3( 0.951058 		,-0.309013 	,0.000000) ,
 		new Vec3( 0.587786 		,-0.809017 	,0.000000) ,
@@ -45,22 +47,23 @@ class TestLinMath extends Unit
 		new Vec3( 0.162456  	,-0.499995 	,0.850654) ,
 		new Vec3( -0.425323 	,-0.309011 	,0.850654) ,
 		new Vec3( -0.425323 	,0.309011 	,0.850654) ,
-		new Vec3( 0.162456  	,0.499995 	,0.850654) */
-	];
+		new Vec3( 0.162456  	,0.499995 	,0.850654) ];
 	
 	public function new() 
 	{
 		super(LinMath);
 		tests( [
 			testNormalize,
-			//testQuicksorta,
-			//testQuaternionGetAxisAngle,
+			testQuaternionGetAxisAngle,
 		]);
 	}
 	
 	//= new Vec3
 	function testNormalize()
 	{
+		var _ = Vec3.ZERO;
+		var _ = linMath.Transform.fromQuat( new Quat());
+		
 		var xaxis= new Vec3(1,0,0);
 		var yaxis= new Vec3(0,1,0);
 		var zaxis = new Vec3(0, 0, 1);
@@ -107,9 +110,9 @@ class TestLinMath extends Unit
 					Assert.doublesEqual(Math.abs(angle), Math.abs(compAngle), 1e-5);
 				}
 				
-				var compAxis = quat.getAxis();
+				var compAxis : Vec3 = quat.getAxis();
 				
-				if ( compAxis > Cst.SIMD_EPSILON)
+				if ( compAngle > Cst.SIMD_EPSILON)
 				{
 					if (i >= 0)
 					{

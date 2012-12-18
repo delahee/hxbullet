@@ -1,5 +1,6 @@
 /*
 Copyright (c) 2003-2006 Gino van den Bergen / Erwin Coumans  http://continuousphysics.com/Bullet/
+Haxe Port Copyright (c) 2012 David Elahee 
 
 This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from the use of this software.
@@ -53,7 +54,8 @@ class Vec3 extends QuadFloat
 	public inline function div(v:Vec3)			return new Vec3(v.x / x, v.y / y, v.z / z)
 	
 	public inline function add(v:Vec3)			return new Vec3(v.x + x, v.y + y, v.z + z)
-	public inline function minus(v:Vec3)		return new Vec3(x - v.x, y-v.y, z-v.z)
+	public inline function minus(v:Vec3)		return new Vec3(x - v.x, y - v.y, z - v.z)
+	public inline function sub(v) 				return minus(v)
 	
 	public inline function mulScalar(f:Float)	return new Vec3(x * f, y * f, z * f)
 	public inline function divScalar(f:Float)	return mulScalar(1.0 / f)
@@ -153,6 +155,16 @@ class Vec3 extends QuadFloat
 		v2.setValue(-y, x, 0.0);
 	}
 	
+	public inline function clone()
+		return new Vec3(x, y, z)
+		
+	public inline function copy(v:Vec3)
+	{
+		x = v.x;
+		y = v.y;
+		z = v.z;
+	}
+	
 	public inline function setZero()				x = y = z = w  = 0
 	public inline function isZero()					return x == 0 && y == 0 && z == 0
 		
@@ -193,6 +205,6 @@ class Vec3 extends QuadFloat
 		return ptIndex;
 	}
 	
-	
+	public static inline var ZERO = new Vec3(0, 0, 0);
 	
 }

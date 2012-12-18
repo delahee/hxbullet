@@ -10,11 +10,16 @@ policy:
 suppress the btPrefix since we have namespacing
 btMatrix3x3 -> Matrix33
 
-shorten type literals to compact form
+shorten type literals to compact form 
 Matrix3x3 -> Mtx33
 
+shorten m_ variable range
+
+port interfaces as classes with asserts 
+port destructors as destroy 
+
 port function name as provided
-port constructor under a from*Type* form
+port constructor under a from*Type* form if needed be
 
 keep data structure roughly the same ( array stay as arrays )
 try to abstract from java port to start.
